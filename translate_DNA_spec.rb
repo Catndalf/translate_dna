@@ -1,8 +1,7 @@
-require_relative 'translate_DNA'
+require_relative 'dna'
 
 RSpec.describe 'DNA' do
   subject {translate_with_frame(dna,frames)}
-  let(:frames){[1,2,3,-1,-2,-3]}  
   
   context "when one frame request" do 
     let(:dna){"AGGTGACACCGCAAGCCTTATATTAGC"}
@@ -65,6 +64,7 @@ RSpec.describe 'DNA' do
   end
 
   context "when low size dna" do 
+    subject {translate_with_frame(dna)}
     let(:dna){"AAA"}
 
     context "for all frames" do       
